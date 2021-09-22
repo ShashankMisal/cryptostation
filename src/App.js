@@ -1,7 +1,9 @@
+import SideDrawer from "./components/SideDrawer";
+
 function App() {
   return (
     <div className="App">
-      <h1>hello crypto</h1> 
+          <SideDrawer />
     </div>
   );
 }
