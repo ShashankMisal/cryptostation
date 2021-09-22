@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -41,8 +41,6 @@ export default function NavTabs() {
             <NavLink exact to={`/`} style={linkStyle} activeStyle={activeNavStyle}>
                 <span className={classes.navBtns}>Home</span>
             </NavLink>
-
-
 
             <NavLink to={`/cryptocurrencies`} style={linkStyle} activeStyle={activeNavStyle}>
                 <span className={classes.navBtns}>CryptoCurrencies</span>

@@ -3,11 +3,11 @@ import { Route, Switch } from 'react-router-dom';
 import Homepage from "./components/Homepage";
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './Theme'
-import { CssBaseline } from "@mui/material";
+import { Container, CssBaseline } from "@mui/material";
 
 function App() {
   return (
-    <div className="App">
+    <Container className="App">
       <ThemeProvider theme={theme}>
           <NavTabs />
         <CssBaseline />
@@ -29,7 +29,7 @@ function App() {
         </Route>
       </Switch>
       </ThemeProvider>
-    </div>
+    </Container>
   );
 }
 
