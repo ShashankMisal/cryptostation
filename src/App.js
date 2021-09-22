@@ -4,6 +4,7 @@ import Homepage from "./components/Homepage";
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './Theme'
 import { Container, CssBaseline } from "@mui/material";
+import Cryptocurrencies from "./components/Cryptocurrencies";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           {/* <Exchanges /> */}
         </Route>
         <Route exact path="/cryptocurrencies">
-          {/* <Cryptocurrencies /> */}
+            <Cryptocurrencies />
         </Route>
         <Route exact path="/crypto/:coinId">
           {/* <CryptoDetails /> */}

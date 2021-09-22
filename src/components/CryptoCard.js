@@ -9,11 +9,11 @@ import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 
 
-const useStyles = makeStyles(theme=>({
+const useStyles = makeStyles(theme => ({
 
     card: {
         borderRadius: 12,
-        minWidth: 256,
+        minWidth: 226,
         textAlign: 'center',
         margin: 15
     },
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme=>({
     },
     statLabel: {
         fontSize: theme.spacing(1.5),
-        color: theme.palette.grey[500],
+        color: theme.palette.grey[700],
         fontWeight: 500,
         fontFamily:
             '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
@@ -51,30 +51,29 @@ const useStyles = makeStyles(theme=>({
     },
 }))
 
-export const CryptoCard = React.memo(function ProfileCard(props) {
+export const CryptoCard = React.memo(function ProfileCard({ name, img, price, dailyChange, marketCap,rank}) {
     const styles = useStyles();
-    const { name, url, designation } = props
 
     return (
         <Card className={cx(styles.card)} elevation={1}>
             <CardContent>
-                <Avatar className={styles.avatar} src={url} />
-                <h3 className={styles.heading}>Bitmdosi</h3>
+                <Avatar className={styles.avatar} src={img} />
+                <h3 className={styles.heading}>{`${rank}. ${name}`}</h3>
             </CardContent>
-            <Divider dark />
+            <Divider />
             <Box display='flex'>
-                <Box p={1.5} flex={'auto'}>
+                <Box p={1} flex={'auto'}>
                     <p className={styles.statLabel}>Current Price</p>
-                    <p className={styles.statValue}>₹23423</p>
+                    <p className={styles.statValue}>{`$${price}`}</p>
                 </Box>
 
-                <Box p={1.5} flex={'auto'}>
+                <Box p={1} flex={'auto'}>
                     <p className={styles.statLabel}>Market Cap</p>
-                    <p className={styles.statValue}>₹43232</p>
+                    <p className={styles.statValue}>{`$${marketCap}`}</p>
                 </Box>
-                <Box p={1.5} flex={'auto'}>
+                <Box p={1} flex={'auto'}>
                     <p className={styles.statLabel}>Daily Change</p>
-                    <p className={styles.statValue}>₹43232</p>
+                    <p className={styles.statValue}>{`${dailyChange}%`}</p>
                 </Box>
             </Box>
         </Card>
