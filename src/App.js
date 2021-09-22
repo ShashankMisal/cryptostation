@@ -3,12 +3,13 @@ import { Route, Switch } from 'react-router-dom';
 import Homepage from "./components/Homepage";
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './Theme'
-import { Container, CssBaseline } from "@mui/material";
+import { CssBaseline } from "@mui/material";
 import Cryptocurrencies from "./components/Cryptocurrencies";
+import News from "./components/News";
 
 function App() {
   return (
-    <Container className="App">
+    <div className="App">
       <ThemeProvider theme={theme}>
           <NavTabs />
         <CssBaseline />
@@ -16,21 +17,21 @@ function App() {
         <Route exact path="/">
           <Homepage />
         </Route>
-        <Route exact path="/exchanges">
+        <Route path="/exchanges">
           {/* <Exchanges /> */}
         </Route>
-        <Route exact path="/cryptocurrencies">
+        <Route path="/cryptocurrencies">
             <Cryptocurrencies />
         </Route>
-        <Route exact path="/crypto/:coinId">
+        <Route path="/crypto/:coinId">
           {/* <CryptoDetails /> */}
         </Route>
-        <Route exact path="/news">
-          {/* <News /> */}
+        <Route path="/news">
+          <News />
         </Route>
       </Switch>
       </ThemeProvider>
-    </Container>
+    </div>
   );
 }
 
