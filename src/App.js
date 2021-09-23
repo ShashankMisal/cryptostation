@@ -7,6 +7,7 @@ import { CssBaseline } from "@mui/material";
 import Cryptocurrencies from "./components/Cryptocurrencies";
 import News from "./components/News";
 import CryptoDetails from "./components/CryptoDetails";
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <News />
         </Route>
       </Switch>
+      <Footer/>
       </ThemeProvider>
     </div>
   );

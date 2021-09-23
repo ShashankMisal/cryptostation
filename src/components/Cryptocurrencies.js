@@ -8,6 +8,7 @@ import CryptoCard from './CryptoCard';
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
 import SearchBar from './SearchBar';
+import Loader from './Loader';
 
 function Cryptocurrencies({ simplified }) {
 
@@ -28,7 +29,7 @@ function Cryptocurrencies({ simplified }) {
         textDecoration: "none",
         color: "black",
     }
-    if (isFetching) return "Loading....";
+    if (isFetching) return <Loader />;
 
     return (
 

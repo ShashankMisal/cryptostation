@@ -12,7 +12,7 @@ export default function NewsCard({img,title,summary,date,link}) {
     
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ minWidth: 226 }} style={{height:"400px"}}>
             <CardMedia
                 component="img"
                 alt={title}
@@ -23,10 +23,10 @@ export default function NewsCard({img,title,summary,date,link}) {
                 <Typography variant="body2">
                     {moment(date).startOf('ss').fromNow()}
                 </Typography>
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="div" style={{height:"65px",overflowY:"auto"}}>
                     {title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" paragraph color="text.secondary" style={{ height: "82px", overflowY: "auto" }}>
                     {summary?.length>100?`${summary.substring(0,150)}...........`:summary}
                 </Typography>
             </CardContent>

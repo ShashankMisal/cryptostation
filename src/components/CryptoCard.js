@@ -15,7 +15,11 @@ const useStyles = makeStyles(theme => ({
         borderRadius: 12,
         minWidth: 226,
         textAlign: 'center',
-        margin: 15
+        margin: 15,
+        "&:hover": {
+            transition: "transform .2s ease-in",
+            transform: "scale(0.95)"
+        }
     },
     avatar: {
         width: 75,
@@ -51,7 +55,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export const CryptoCard = React.memo(function ProfileCard({ name, img, price, dailyChange, marketCap,rank}) {
+export const CryptoCard = React.memo(function ProfileCard({ name, img, price, dailyChange, marketCap, rank }) {
     const styles = useStyles();
 
     return (

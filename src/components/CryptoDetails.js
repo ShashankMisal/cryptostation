@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import HTMLReactParser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 import millify from 'millify';
-import { Grid, Box, Container, Typography, InputLabel, MenuItem,FormControl,Select,Stack,Divider} from '@mui/material';
+import { Grid, Box, Container, Typography, InputLabel, MenuItem,FormControl,Select,Stack,Divider, Avatar} from '@mui/material';
 import LineChart from './LineChart';
+import Loader from './Loader';
 
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
@@ -21,6 +22,7 @@ import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/
 
 
 
+
 function CryptoDetails() {
     
     const { coinId } = useParams();
@@ -29,12 +31,11 @@ function CryptoDetails() {
     const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timeperiod });
     const cryptoDetails = data?.data?.coin;
     
-    
     const handleChange = (event) => {
         setTimeperiod(event.target.value);
     };
     
-    if (isFetching) return "Loading";
+    if (isFetching) return <Loader/>;
 
     const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
     
@@ -62,9 +63,15 @@ function CryptoDetails() {
 
                 <Grid container justifyContent="center" spacing={3}>
                     <Grid item xs={12}>
+                        <Box display="flex" justifyContent="center">
+                            <Avatar src={cryptoDetails.iconUrl} />
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12}>
                         <Typography align="center" variant="h4" color="primary" style={{ fontWeight: 750 }}>
                             {data?.data?.coin.name} ({data?.data?.coin.slug}) Price
                         </Typography>
+                       
                     </Grid>
                     <Grid item xs={12}>
                         <Typography align="center" variant="body1" style={{ fontWeight: 750 }}   >
@@ -92,6 +99,7 @@ function CryptoDetails() {
                     }
                 </Select>
             </FormControl>
+
 
             <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name} />
             

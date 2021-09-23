@@ -2,16 +2,20 @@ import React from 'react'
 import { Grid, Stack, Typography, Box, Button, Container } from '@mui/material';
 import millify from 'millify';
 import { grey } from '@mui/material/colors';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
 import Cryptocurrencies from './Cryptocurrencies';
 import News from './News';
 import { Link } from 'react-router-dom';
+import Loader from './Loader';
+import CountUp from 'react-countup';
 
 function Homepage() {
 
     const { data, isFetching } = useGetCryptosQuery(10);
+    const mobile = useMediaQuery('(max-width:700px)');
 
     const linkStyle = {
         textDecoration: "none",
@@ -20,7 +24,7 @@ function Homepage() {
 
     const globalStats = data?.data?.stats;
 
-    if (isFetching) return "Loading.....";
+    if (isFetching) return <Loader />;
 
 
     return (
@@ -35,7 +39,7 @@ function Homepage() {
 
                         <Grid item xs={12} sm={4}>
                             <Stack>
-                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{`${millify(globalStats.totalExchanges)}`}</Typography>
+                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{<CountUp end={`${millify(globalStats.totalExchanges)}`} duration={1.2} />}</Typography>
                                 <Typography align="center" variant="h5">Total Exchanges</Typography>
                             </Stack>
                         </Grid>
@@ -55,7 +59,7 @@ function Homepage() {
 
                         <Grid item xs={12} sm={6}>
                             <Stack>
-                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{globalStats?.total}</Typography>
+                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{<CountUp end={globalStats.total} duration={1.2}/>}</Typography>
                                 <Typography align="center" variant="h5">Total Cryptocurrencies</Typography>
                             </Stack>
                         </Grid>
@@ -70,7 +74,7 @@ function Homepage() {
                 </Container>
             </Box>
 
-            <Box p={10} style={{ backgroundColor: `${grey[200]}` }} width="100%">
+            <Box p={mobile?2:10} style={{ backgroundColor: `${grey[200]}` }} width="100%">
                 <Container>
                     <Grid container justifyContent="center" style={{ marginTop: "25px" }} >
                         <Grid item sm={12}>
@@ -83,7 +87,7 @@ function Homepage() {
                 </Container>
             </Box>
 
-            <Box p={10} mb={10} style={{ backgroundColor: `${grey[50]}`}} >
+            <Box p={mobile ? 2 : 10} pb={mobile ? 5 : 10} style={{ backgroundColor: `${grey[50]}`}} >
                 <Container>
                     <Grid container justifyContent="center" style={{ marginTop: "25px" }} >
                         <Grid item sm={12}>

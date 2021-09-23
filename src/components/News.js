@@ -3,16 +3,17 @@ import { Container, Grid} from '@mui/material';
 import NewsCard from './NewsCard'
 
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
+import Loader from './Loader';
 
 function News({simplified}) {
     const { data: cryptoNews , isFetching } = useGetCryptoNewsQuery( simplified ? '6' : '25');
     const {articles} = cryptoNews?cryptoNews:[]
 
-    if(isFetching) return "Loading..."
+    if (isFetching) return <Loader />
 
     return (
         <Container>
-            <Grid container justifyContent="center" spacing={2} style={{marginTop:"15px"}}>
+            <Grid container spacing={2} justifyContent="center" style={{marginTop:"15px",display:"flex",justifyCotent:"center"}}>
             
                 {
                     articles?.map((article,index) => (
