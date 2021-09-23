@@ -2,14 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import millify from 'millify';
 import { Link } from 'react-router-dom';
-import { Grid ,Box, Button} from '@mui/material';
+import { Grid, Box, Button, Container } from '@mui/material';
 import CryptoCard from './CryptoCard';
 
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
 import SearchBar from './SearchBar';
 
-function Cryptocurrencies({simplified}) {
+function Cryptocurrencies({ simplified }) {
 
     const count = simplified ? 10 : 100;
     const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
@@ -31,26 +31,26 @@ function Cryptocurrencies({simplified}) {
     if (isFetching) return "Loading....";
 
     return (
-        <>
-            
+
+        <Container>
             <Grid container justifyContent="center" spacing={2}>
-                        <Grid item xs={12} >
-                            {!simplified && (
-                                <Box display="flex" justifyContent="center">
-                                    <SearchBar setSearchTerm={setSearchTerm} />
-                                </Box>
-                            )}
-                        </Grid>
+                <Grid item xs={12} >
+                    {!simplified && (
+                        <Box display="flex" justifyContent="center">
+                            <SearchBar setSearchTerm={setSearchTerm} />
+                        </Box>
+                    )}
+                </Grid>
                 {
                     cryptos?.map(currency => (
                         <Grid key={currency.id} item xs={12} sm={6} md={4}>
-                                <Link  to={`/crypto/${currency.id}`} style={linkStyle}>
-                                    <CryptoCard rank={currency.rank} img={currency.iconUrl} name={currency.name} price={millify(currency.price)} marketCap={millify(currency.marketCap)} dailyChange={currency.change} />
-                                </Link>
+                            <Link to={`/crypto/${currency.id}`} style={linkStyle}>
+                                <CryptoCard rank={currency.rank} img={currency.iconUrl} name={currency.name} price={millify(currency.price)} marketCap={millify(currency.marketCap)} dailyChange={currency.change} />
+                            </Link>
                         </Grid>
                     ))
                 }
-                
+
                 {simplified && (
                     <Grid item xs={12} sm={4}>
                         <Box display="flex" width="100%" height="100%" justifyContent="center" alignItems="center" borderRadius="4px">
@@ -61,8 +61,9 @@ function Cryptocurrencies({simplified}) {
                     </Grid>
                 )}
 
-            </Grid>  
-        </>
+            </Grid>
+        </Container>
+
     )
 }
 

@@ -6,6 +6,7 @@ import theme from './Theme'
 import { CssBaseline } from "@mui/material";
 import Cryptocurrencies from "./components/Cryptocurrencies";
 import News from "./components/News";
+import CryptoDetails from "./components/CryptoDetails";
 
 function App() {
   return (
@@ -17,14 +18,11 @@ function App() {
         <Route exact path="/">
           <Homepage />
         </Route>
-        <Route path="/exchanges">
-          {/* <Exchanges /> */}
-        </Route>
         <Route path="/cryptocurrencies">
             <Cryptocurrencies />
         </Route>
         <Route path="/crypto/:coinId">
-          {/* <CryptoDetails /> */}
+          <CryptoDetails />
         </Route>
         <Route path="/news">
           <News />

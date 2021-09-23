@@ -9,13 +9,9 @@ const theme = createTheme({
             main: "#EA6F66",
         }
     },
-    overrides: {
+    components: {
         MuiCssBaseline: {
-            "@global": {
-                img: {
-                    maxWidth: "100%",
-                    height: "auto"
-                },
+            styleOverrides: {
                 a: {
                     textDecoration: "none"
                 }

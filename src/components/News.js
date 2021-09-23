@@ -1,20 +1,17 @@
 import React from 'react'
-import { Grid} from '@mui/material';
+import { Container, Grid} from '@mui/material';
 import NewsCard from './NewsCard'
 
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
 
 function News({simplified}) {
     const { data: cryptoNews , isFetching } = useGetCryptoNewsQuery( simplified ? '6' : '25');
-
-    console.log(cryptoNews)
-
     const {articles} = cryptoNews?cryptoNews:[]
 
     if(isFetching) return "Loading..."
 
     return (
-        <>
+        <Container>
             <Grid container justifyContent="center" spacing={2} style={{marginTop:"15px"}}>
             
                 {
@@ -31,7 +28,7 @@ function News({simplified}) {
                     ))
                 }
             </Grid>
-        </>
+        </Container>
     )
 }
 

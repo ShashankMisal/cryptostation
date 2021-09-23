@@ -46,11 +46,6 @@ export default function NavTabs() {
                 <span className={classes.navBtns}>CryptoCurrencies</span>
             </NavLink>
 
-
-            <NavLink to={`/exhanges`} style={linkStyle} activeStyle={activeNavStyle}>
-                <span className={classes.navBtns}>Exchanges</span>
-            </NavLink>
-
             <NavLink to={`/news`} style={linkStyle} activeStyle={activeNavStyle}>
                 <span className={classes.navBtns}>CryptoNews</span>
             </NavLink>
