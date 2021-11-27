@@ -2,10 +2,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const cryptoNewsHeaders = {
     "x-rapidapi-host": "free-news.p.rapidapi.com",
-    "x-rapidapi-key": "727843ab79msh1c3a4850232eda6p1c9bcbjsna188350a0a32"
+    "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY
 };
 
-const baseUrl = 'https://free-news.p.rapidapi.com';
+const baseUrl = process.env.REACT_APP_NEWS_BASE_URL;
 
 const createRequest = (url) => ({ url, headers: cryptoNewsHeaders });
 

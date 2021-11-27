@@ -29,7 +29,7 @@ function Homepage() {
 
     return (
         <Stack direction="column">
-            <Box p={10} style={{backgroundColor:`${grey[50]}`}} width="100%">
+            <Box p={10} style={{ backgroundColor: `${grey[50]}` }} width="100%">
 
                 <Container>
                     <Grid container spacing={4} justifyContent="center">
@@ -39,27 +39,27 @@ function Homepage() {
 
                         <Grid item xs={12} sm={4}>
                             <Stack>
-                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{<CountUp end={`${millify(globalStats.totalExchanges)}`} duration={1.2} />}</Typography>
+                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{<CountUp end={`${millify(globalStats?.totalExchanges)}`} duration={1.2} />}</Typography>
                                 <Typography align="center" variant="h5">Total Exchanges</Typography>
                             </Stack>
                         </Grid>
 
                         <Grid item xs={12} sm={4}>
                             <Stack>
-                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{`$${millify(globalStats.totalMarketCap)}`}</Typography>
+                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{`$${millify(globalStats?.totalMarketCap)}`}</Typography>
                                 <Typography align="center" variant="h5">Total Market Cap</Typography>
                             </Stack>
                         </Grid>
                         <Grid item xs={12} sm={4}>
                             <Stack>
-                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{`$${millify(globalStats.total24hVolume)}`}</Typography>
+                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{`$${millify(globalStats?.total24hVolume)}`}</Typography>
                                 <Typography align="center" variant="h5">Total 24h Volume</Typography>
                             </Stack>
                         </Grid>
 
                         <Grid item xs={12} sm={6}>
                             <Stack>
-                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{<CountUp end={globalStats.total} duration={1.2}/>}</Typography>
+                                <Typography sx={{ fontWeight: 600 }} align="center" variant="h4">{<CountUp end={globalStats.total} duration={1.2} />}</Typography>
                                 <Typography align="center" variant="h5">Total Cryptocurrencies</Typography>
                             </Stack>
                         </Grid>
@@ -74,7 +74,7 @@ function Homepage() {
                 </Container>
             </Box>
 
-            <Box p={mobile?2:10} style={{ backgroundColor: `${grey[200]}` }} width="100%">
+            <Box p={mobile ? 2 : 10} style={{ backgroundColor: `${grey[200]}` }} width="100%">
                 <Container>
                     <Grid container justifyContent="center" style={{ marginTop: "25px" }} >
                         <Grid item sm={12}>
@@ -87,7 +87,7 @@ function Homepage() {
                 </Container>
             </Box>
 
-            <Box p={mobile ? 2 : 10} pb={mobile ? 5 : 10} style={{ backgroundColor: `${grey[50]}`}} >
+            <Box p={mobile ? 2 : 10} pb={mobile ? 5 : 10} style={{ backgroundColor: `${grey[50]}` }} >
                 <Container>
                     <Grid container justifyContent="center" style={{ marginTop: "25px" }} >
                         <Grid item sm={12}>
@@ -104,7 +104,7 @@ function Homepage() {
                             </Box>
                         </Grid>
                     </Grid>
-                </Container> 
+                </Container>
             </Box>
 
         </Stack>
